@@ -1,0 +1,9 @@
+@use "src/theme/styles/variables.scss" as *;
+
+.blank {
+  height: 100%;
+
+  .dx-scrollview-content {
+    height: 100%;
+  }
+}
