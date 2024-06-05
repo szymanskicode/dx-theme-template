@@ -36,25 +36,25 @@ function RootApp() {
   return <UnauthenticatedContent />;
 }
 
-export const App: React.FC<AppProps> = ({ msalInstance, appInsights }) => {
+export const App: React.FC = () => {
   const screenSizeClass = useScreenSizeClass();
   const themeContext = useThemeContext();
 
   return (
     <Router>
-      <AppInsightsContext.Provider value={appInsights.reactPlugin}>
-        <ThemeContext.Provider value={themeContext}>
-          {/* <MsalProvider instance={msalInstance}> */}
-          <ErrorBoundary>
-            <AuthProvider>
-              <NavigationProvider>
-                <div className={`app ${screenSizeClass}`}>{themeContext.isLoaded ? <RootApp /> : null}</div>
-              </NavigationProvider>
-            </AuthProvider>
-          </ErrorBoundary>
-          {/* </MsalProvider> */}
-        </ThemeContext.Provider>
-      </AppInsightsContext.Provider>
+      {/* <AppInsightsContext.Provider value={appInsights.reactPlugin}> */}
+      <ThemeContext.Provider value={themeContext}>
+        {/* <MsalProvider instance={msalInstance}> */}
+        <ErrorBoundary>
+          <AuthProvider>
+            <NavigationProvider>
+              <div className={`app ${screenSizeClass}`}>{themeContext.isLoaded ? <RootApp /> : null}</div>
+            </NavigationProvider>
+          </AuthProvider>
+        </ErrorBoundary>
+        {/* </MsalProvider> */}
+      </ThemeContext.Provider>
+      {/* </AppInsightsContext.Provider> */}
     </Router>
   );
 };
